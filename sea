@@ -1,0 +1,2 @@
+getgenv().Key = "d2ca0c16ddfb5cf"
+loadstring(game:HttpGet("https://ego-d.xyz/Script"))()
