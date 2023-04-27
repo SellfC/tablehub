@@ -9,7 +9,7 @@ _G.Fruit1 = {
         [2] = "Leopard-Leopard",
         [3] = "Dragon-Dragon",
     },
-    ['SelectDevil'] = {"Blizzard-Blizzard", "Light-Light", "Magma-Magma"},
+    ['SelectDevil'] = {"Blizzard-Blizzard", "Dough-Dough", "Leopard-Leopard", "Dragon-Dragon"},
     ['SinperFruit_mode'] = true,
 }
 
