@@ -1,0 +1,11 @@
+local player = {
+    "MariaRobinson9"
+}
+
+if game.Players.LocalPlayer.Name == unpack(player) then
+    print(game.Players.LocalPlayer.Name)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SellfC/tablehub/main/sea"))()
+    else
+        print("table user")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SellfC/tablehub/main/table"))()
+        end
