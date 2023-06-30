@@ -1,3 +1,0 @@
-_G.auto_execute = false
-
-loadstring(game:HttpGet('https://script.karmapanda.dev'))()
