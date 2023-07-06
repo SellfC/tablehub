@@ -1,9 +1,24 @@
--- Список разрешенных ключей
-local whitelist = {
-    "123xmy4890w4579081273",
-    "780698b123xm133123",
-    "123kasd3248y91yhw018dh1"
-}
+local http = game:GetService("HttpService")
+
+-- Функция для загрузки списка ключей с GitHub
+local function loadKeysFromGitHub(repoOwner, repoName, filePath)
+    local url = string.format("https://raw.githubusercontent.com/%s/%s/main/%s", repoOwner, repoName, filePath)
+    local success, response = pcall(function()
+        return http:GetAsync(url)
+    end)
+    if success and response then
+        return response:split("\n")
+    else
+        error("Не удалось загрузить ключи с GitHub.")
+    end
+end
+
+-- Загрузка списка ключей с GitHub
+local repoOwner = "SellfC" -- Замените на ваше имя пользователя на GitHub
+local repoName = "tablehub" -- Замените на имя вашего репозитория на GitHub
+local filePath = "keys.txt" -- Замените на путь к файлу ключей в вашем репозитории на GitHub
+
+local whitelist = loadKeysFromGitHub(repoOwner, repoName, filePath)
 
 -- Функция для проверки ключа в вайтлисте
 local function checkWhitelist(key)
@@ -15,7 +30,7 @@ local function checkWhitelist(key)
     return false
 end
 
--- Получение вводимого ключа из глобальной переменной
+-- Получение вводимого ключа
 local inputKey = getgenv().Key
 
 if not inputKey or inputKey == "" then
