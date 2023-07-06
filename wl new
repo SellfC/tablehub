@@ -16,7 +16,7 @@ end
 -- Загрузка списка ключей с GitHub
 local repoOwner = "SellfC" -- Замените на ваше имя пользователя на GitHub
 local repoName = "tablehub" -- Замените на имя вашего репозитория на GitHub
-local filePath = "keys.txt" -- Замените на путь к файлу ключей в вашем репозитории на GitHub
+local filePath = "https://raw.githubusercontent.com/SellfC/tablehub/main/keys.txt" -- Замените на путь к файлу ключей в вашем репозитории на GitHub
 
 local whitelist = loadKeysFromGitHub(repoOwner, repoName, filePath)
 
