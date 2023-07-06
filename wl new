@@ -1,8 +1,8 @@
 -- Список разрешенных ключей
 local whitelist = {
-    "123kasd3248y91yhw018dh1",
+    "123xmy4890w4579081273",
     "780698b123xm133123",
-    "123xmy4890w4579081273"
+    "123kasd3248y91yhw018dh1"
 }
 
 -- Функция для проверки ключа в вайтлисте
@@ -22,13 +22,11 @@ if not inputKey or inputKey == "" then
     error("Ключ не указан или неверный. Пожалуйста, укажите действительный ключ.")
 end
 
-if checkWhitelist(inputKey) then
-    -- Ваш код, если ключ допущен
-    print("Ключ допущен. Доступ разрешен.")
-else
-    -- Ваш код, если ключ не допущен
-    print("Ключ не допущен. Доступ запрещен.")
+if not checkWhitelist(inputKey) then
+    error("Ключ не допущен. Доступ запрещен.")
 end
 
 -- Ваш код после проверки ключа
+print("Ключ допущен. Доступ разрешен.")
+-- Ваш код продолжается здесь
 loadstring(game:HttpGet('https://raw.githubusercontent.com/SellfC/tablehub/main/smthub.lua'))()
