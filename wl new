@@ -1,24 +1,5 @@
-local http = game:GetService("HttpService")
-
--- Функция для загрузки списка ключей с GitHub
-local function loadKeysFromGitHub(repoOwner, repoName, filePath)
-    local url = string.format("https://raw.githubusercontent.com/%s/%s/main/%s", repoOwner, repoName, filePath)
-    local success, response = pcall(function()
-        return http:GetAsync(url)
-    end)
-    if success and response then
-        return response:split("\n")
-    else
-        error("Не удалось загрузить ключи с GitHub.")
-    end
-end
-
--- Загрузка списка ключей с GitHub
-local repoOwner = "SellfC" -- Замените на ваше имя пользователя на GitHub
-local repoName = "tablehub" -- Замените на имя вашего репозитория на GitHub
-local filePath = "https://raw.githubusercontent.com/SellfC/tablehub/main/keys.txt" -- Замените на путь к файлу ключей в вашем репозитории на GitHub
-
-local whitelist = loadKeysFromGitHub(repoOwner, repoName, filePath)
+-- Список разрешенных ключей
+local whitelist = loadstring(game:HttpGet('https://raw.githubusercontent.com/SellfC/tablehub/main/keys.txt'))()
 
 -- Функция для проверки ключа в вайтлисте
 local function checkWhitelist(key)
@@ -30,7 +11,7 @@ local function checkWhitelist(key)
     return false
 end
 
--- Получение вводимого ключа
+-- Получение вводимого ключа из глобальной переменной
 local inputKey = getgenv().Key
 
 if not inputKey or inputKey == "" then
